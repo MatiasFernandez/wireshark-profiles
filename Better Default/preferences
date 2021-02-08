@@ -1,4 +1,4 @@
-# Configuration file for Wireshark 3.4.0.
+# Configuration file for Wireshark 3.4.3.
 #
 # This file is regenerated each time preferences are saved within
 # Wireshark. Making manual changes should be safe, however.
@@ -31,7 +31,7 @@
 
 # Directory to start in when opening File Open dialog.
 # A path to a directory
-#gui.fileopen.dir: C:\Users\amwal\Documents
+#gui.fileopen.dir: 
 
 # The preview timeout in the File Open dialog
 # A decimal number
@@ -202,15 +202,15 @@ gui.window_title: SPINE Gi1 to LEAF1 Gi1
 
 # Valid color filter background
 # A six-digit hexadecimal RGB color triplet (e.g. fce94f)
-#gui.color_filter_bg.valid: afffaf
+#gui.color_filter_bg.valid: 006600
 
 # Invalid color filter background
 # A six-digit hexadecimal RGB color triplet (e.g. fce94f)
-#gui.color_filter_bg.invalid: ffafaf
+#gui.color_filter_bg.invalid: 660000
 
 # Deprecated color filter background
 # A six-digit hexadecimal RGB color triplet (e.g. fce94f)
-#gui.color_filter_bg.deprecated: ffffaf
+#gui.color_filter_bg.deprecated: 666600
 
 ####### User Interface: Columns ########
 
@@ -224,8 +224,12 @@ gui.column.format:
 	"No.", "%m",
 	"Time", "%t",
 	"Time Delta", "%Gt",
-	"Source", "%s",
-	"Destination", "%d",
+	"Src MAC", "%Cus:eth.src:0:R",
+	"Src IP", "%s",
+	"Src Port", "%Cus:tcp.srcport:0:R",
+	"Dst MAC", "%Cus:eth.dst:0:R",
+	"Dst IP", "%d",
+	"Dst Port", "%Cus:tcp.dstport:0:R",
 	"Length", "%L",
 	"Protocol", "%p",
 	"L4 StreamIndex", "%Cus:tcp.stream or udp.stream:0:R",
@@ -235,7 +239,7 @@ gui.column.format:
 
 # Font name for packet list, protocol tree, and hex dump panes. (Qt)
 # A string
-gui.qt.font_name: Consolas,8,-1,5,50,0,0,0,0,0,Regular
+gui.qt.font_name: Menlo,13,-1,5,50,0,0,0,0,0,Regular
 
 ####### User Interface: Layout ########
 
@@ -381,29 +385,145 @@ gui.qt.font_name: Consolas,8,-1,5,50,0,0,0,0,0,Regular
 # TRUE or FALSE (case-insensitive)
 #extcap.gui_save_on_start: TRUE
 
-# Snapshot length
+# Max bytes in a packet
 # A string
-#extcap.____usbpcap1.snaplen: 65535
+#extcap.randpkt.maxbytes: 5000
 
-# Capture buffer length
+# Number of packets
 # A string
-#extcap.____usbpcap1.bufferlen: 1048576
+#extcap.randpkt.count: 1000
 
-# Capture from all devices connected
+# Packet delay (ms)
 # A string
-#extcap.____usbpcap1.capturefromalldevices: true
+#extcap.randpkt.delay: 0
 
-# Capture from newly connected devices
+# Random type
 # A string
-#extcap.____usbpcap1.capturefromnewdevices: true
+#extcap.randpkt.randomtype: false
 
-# Inject already connected devices descriptors into capture data
+# All random packets
 # A string
-#extcap.____usbpcap1.injectdescriptors: true
+#extcap.randpkt.allrandom: false
 
-# Attached USB Devices
+# Type of packet
 # A string
-#extcap.____usbpcap1.devices: 
+#extcap.randpkt.type: 
+
+# Run in debug mode
+# A string
+#extcap.randpkt.debug: false
+
+# Use a file for debug
+# A string
+#extcap.randpkt.debugfile: 
+
+# Remote SSH server address
+# A string
+#extcap.ciscodump.remotehost: 
+
+# Remote SSH server port
+# A string
+#extcap.ciscodump.remoteport: 22
+
+# Remote SSH server username
+# A string
+#extcap.ciscodump.remoteusername: matyf
+
+# Path to SSH private key
+# A string
+#extcap.ciscodump.sshkey: 
+
+# ProxyCommand
+# A string
+#extcap.ciscodump.proxycommand: 
+
+# Remote interface
+# A string
+#extcap.ciscodump.remoteinterface: 
+
+# Remote capture filter
+# A string
+#extcap.ciscodump.remotefilter: deny tcp host fe80::4e95:8d07:fe0c:df any eq 0, deny tcp any eq 0 host fe80::4e95:8d07:fe0c:df, deny tcp host fe80::f4de:75c9:daab:753b any eq 0, deny tcp any eq 0 host fe80::f4de:75c9:daab:753b, deny tcp host fe80::a881:9aff:fe4d:3814 any eq 0, deny tcp any eq 0 host fe80::a881:9aff:fe4d:3814, deny tcp host fe80::a881:9aff:fe4d:3814 any eq 0, deny tcp any eq 0 host fe80::a881:9aff:fe4d:3814, deny tcp host 10.1.1.12 any eq 0, deny tcp any eq 0 host 10.1.1.12, deny tcp host fe80::149e:b80e:930d:6010 any eq 0, deny tcp any eq 0 host fe80::149e:b80e:930d:6010, deny tcp host fe80::1 any eq 0, deny tcp any eq 0 host fe80::1, permit ip any any
+
+# Packets to capture
+# A string
+#extcap.ciscodump.remotecount: 
+
+# Run in debug mode
+# A string
+#extcap.ciscodump.debug: false
+
+# Use a file for debug
+# A string
+#extcap.ciscodump.debugfile: 
+
+# Listen port
+# A string
+#extcap.udpdump.port: 5555
+
+# Payload type
+# A string
+#extcap.udpdump.payload: data
+
+# Run in debug mode
+# A string
+#extcap.udpdump.debug: false
+
+# Use a file for debug
+# A string
+#extcap.udpdump.debugfile: 
+
+# Remote SSH server address
+# A string
+#extcap.sshdump.remotehost: 
+
+# Remote SSH server port
+# A string
+#extcap.sshdump.remoteport: 
+
+# Remote SSH server username
+# A string
+#extcap.sshdump.remoteusername: 
+
+# Path to SSH private key
+# A string
+#extcap.sshdump.sshkey: 
+
+# ProxyCommand
+# A string
+#extcap.sshdump.proxycommand: 
+
+# Remote interface
+# A string
+#extcap.sshdump.remoteinterface: 
+
+# Remote capture command
+# A string
+#extcap.sshdump.remotecapturecommand: 
+
+# Use sudo on the remote machine
+# A string
+#extcap.sshdump.remotesudo: 
+
+# No promiscuous mode
+# A string
+#extcap.sshdump.remotenoprom: 
+
+# Remote capture filter
+# A string
+#extcap.sshdump.remotefilter: not ((host fe80::4e95:8d07:fe0c:df or host fe80::f4de:75c9:daab:753b or host fe80::a881:9aff:fe4d:3814 or host fe80::a881:9aff:fe4d:3814 or host 10.1.1.12 or host fe80::149e:b80e:930d:6010 or host fe80::1) and port 22)
+
+# Packets to capture
+# A string
+#extcap.sshdump.remotecount: 0
+
+# Run in debug mode
+# A string
+#extcap.sshdump.debug: false
+
+# Use a file for debug
+# A string
+#extcap.sshdump.debugfile: 
 
 ####### Name Resolution ########
 
@@ -1636,10 +1756,6 @@ nameres.hosts_file_handling: TRUE
 # Whether the DSI dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable "Allow subdissectors to reassemble TCP streams" in the TCP protocol settings.
 # TRUE or FALSE (case-insensitive)
 #dsi.desegment: TRUE
-
-# Semicolon-separated list of private RSA keys used for DTLS decryption. Used by versions of Wireshark prior to 1.6
-# A string
-#dtls.keys_list: 
 
 # redirect dtls debug to file name; leave empty to disable debug, use "-" to redirect output to stderr
 # 
@@ -4457,11 +4573,11 @@ nameres.hosts_file_handling: TRUE
 
 # The name of the snort binary file to run
 # A path to a file
-#snort.binary: C:\Snort\bin\snort.exe
+#snort.binary: /usr/sbin/snort
 
 # The name of the file containing the snort IDS configuration.  Typically snort.conf
 # A path to a file
-#snort.config: C:\Snort\etc\snort.conf
+#snort.config: /etc/snort/snort.conf
 
 # Whether or not information about the rule set and detected alerts should be shown in the tree of every snort PDU tree
 # TRUE or FALSE (case-insensitive)
@@ -4829,10 +4945,6 @@ nameres.hosts_file_handling: TRUE
 # Whether the TIPC-over-TCP dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable "Allow subdissectors to reassemble TCP streams" in the TCP protocol settings.
 # TRUE or FALSE (case-insensitive)
 #tipc.desegment: TRUE
-
-# Semicolon-separated list of private RSA keys used for TLS decryption. Used by versions of Wireshark prior to 1.6
-# A string
-#tls.keys_list: 
 
 # Redirect TLS debug to the file specified. Leave empty to disable debugging or use "-" to redirect output to stderr.
 # A path to a file

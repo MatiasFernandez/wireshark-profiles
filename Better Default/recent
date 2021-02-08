@@ -43,7 +43,7 @@ gui.packet_list_colorize: TRUE
 
 # Timestamp display format.
 # One of: RELATIVE, ABSOLUTE, ABSOLUTE_WITH_YMD, ABSOLUTE_WITH_YDOY, ABSOLUTE_WITH_DATE, DELTA, DELTA_DIS, EPOCH, UTC, UTC_WITH_YMD, UTC_WITH_YDOY, UTC_WITH_DATE
-gui.time_format: RELATIVE
+gui.time_format: ABSOLUTE
 
 # Timestamp display precision.
 # One of: AUTO, SEC, DSEC, CSEC, MSEC, USEC, NSEC
@@ -80,15 +80,19 @@ gui.geometry_main_lower_pane: 535
 # Packet list column pixel widths.
 # Each pair of strings consists of a column format and its pixel width.
 column.width:
-        %m, 91:R,
+        %m, 64:R,
         %t, 128,
-        %Gt, -1,
-        %s, 205,
-        %d, 410,
-        %L, 47,
-        %p, 116,
-        "%Cus:tcp.stream or udp.stream", -1:C,
-        %i, 627
+        %Gt, 104,
+        "%Cus:eth.src", 143,
+        %s, 143,
+        "%Cus:tcp.srcport", 88,
+        "%Cus:eth.dst", 143,
+        %d, 143,
+        "%Cus:tcp.dstport", 89,
+        %L, 81,
+        %p, 135,
+        "%Cus:tcp.stream or udp.stream", 138:C,
+        %i, 1206
 
 # Open conversation dialog tabs.
 # List of conversation names, e.g. "TCP", "IPv6".
