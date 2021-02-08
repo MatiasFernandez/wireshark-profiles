@@ -71,43 +71,43 @@ gui.packet_diagram_field_values: FALSE
 
 # Main window upper (or leftmost) pane size.
 # Decimal number.
-gui.geometry_main_upper_pane: 430
+gui.geometry_main_upper_pane: 457
 
 # Main window middle pane size.
 # Decimal number.
-gui.geometry_main_lower_pane: 431
+gui.geometry_main_lower_pane: 538
 
 # Packet list column pixel widths.
 # Each pair of strings consists of a column format and its pixel width.
 column.width:
-        %m, -1,
-        %t, -1,
-        %s, -1,
-        %d, -1,
-        %p, -1,
-        %L, -1,
-        %i, -1
+        %m, 59,
+        %t, 74,
+        %s, 116,
+        %d, 112,
+        %p, 56,
+        %L, 48,
+        "%Cus:ip.id", 167,
+        "%Cus:icmp.type", 40:C,
+        "%Cus:icmp.code", 40:C,
+        "%Cus:ip.src", 217,
+        "%Cus:udp.srcport", 84:C,
+        "%Cus:udp.dstport", 90:C,
+        %i, 545
 
 # Open conversation dialog tabs.
 # List of conversation names, e.g. "TCP", "IPv6".
 gui.conversation_tabs: 
-	"IPv6", "Ethernet",
-	"IPv4", "TCP",
-	"UDP"
 
 # Open endpoint dialog tabs.
 # List of endpoint names, e.g. "TCP", "IPv6".
 gui.endpoint_tabs: 
-	"TCP", "Ethernet",
-	"IPv4", "IPv6",
-	"UDP"
 
 # For RLC stats, whether to use RLC PDUs found inside MAC frames.
 # TRUE or FALSE (case-insensitive).
 gui.rlc_pdus_from_mac_frames: FALSE
 
 # Last directory navigated to in File Open dialog.
-gui.fileopen_remembered_dir: /Users/matyf/Dropbox (Personal)/docs/Redes/PCAPs/Analizar trafico BGH Smart Kit para firewall/
+gui.fileopen_remembered_dir: /Users/matyf/dev/
 
 # Additional Toolbars shown
 # List of additional toolbars to show.

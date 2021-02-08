@@ -1,9 +1,5 @@
-## Acknowledgements
+## Note
 
-### 802.11 Profile:
+All the current profiles I'm using are based on the fantastic profiles that can be downloaded from this repository: https://www.cellstream.com/resources/wireshark-profiles-repository
 
-Colors taken from: https://support.metageek.com/hc/en-us/articles/204425074-Import-Eye-P-A-Coloring-Rules-with-this-Wireshark-download
-
-### Other profiles
-
-Some profiles are based on examples downloaded from: https://www.cellstream.com/resources/wireshark-profiles-repository
+I have my own GitHub repo because I like to tweak them to fit my own needs.
