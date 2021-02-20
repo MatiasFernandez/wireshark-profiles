@@ -1,10 +1,10 @@
 "Wi-Fi/WLAN Data Frames" wlan.fc.type eq 2
 "Wi-Fi/WLAN Control Frames" wlan.fc.type eq 1
 "Wi-Fi/WLAN Management Frames" wlan.fc.type eq 0
-"Wi-Fi/WLAN Beacon Frames" wlan.fc.type_subtype == 0x0008
-"No Wi-Fi/WLAN Beacon Frames" !wlan.fc.type_subtype == 0x0008
 "Wi-Fi/WLAN Probe Requests" wlan.fc.type_subtype == 0x0004
 "Wi-Fi/WLAN Probe Responses" wlan.fc.type_subtype == 0x0005
+"Wi-Fi/WLAN Beacon Frames" wlan.fc.type_subtype == 0x0008
+"No Wi-Fi/WLAN Beacon Frames" !wlan.fc.type_subtype == 0x0008
 "Wi-Fi/WLAN Probe Request or Probe Responses" (wlan.fc.type_subtype == 0x0004)||(wlan.fc.type_subtype == 0x0005)
 "Wi-Fi/WLAN Request To Send" wlan.fc.type_subtype == 0x001b
 "Wi-Fi/WLAN Clear To Send" wlan.fc.type_subtype == 0x001c
@@ -14,12 +14,30 @@
 "Wi-Fi/WLAN 802.1X" llc.type == 0x888e
 "Wi-Fi/WLAN Association Requests" wlan.fc.type_subtype == 0x0000
 "Wi-Fi/WLAN Association Responses" wlan.fc.type_subtype == 0x0001
+"Wi-Fi/WLAN Reassociation Requests" wlan.fc.type_subtype == 2
+"Wi-Fi/WLAN Reassociation Responses" wlan.fc.type_subtype == 3
 "Wi-Fi/WLAN Association Requests and Responses" (wlan.fc.type_subtype == 0x0000) or (wlan.fc.type_subtype == 0x0001)
-"Wi-Fi/WLAN Authentication" wlan.fc.type_subtype == 0x000b
-"Wi-Fi/WLAN De-Authentication" wlan.fc.type_subtype == 0x000c
+"Wi-Fi/WLAN Disassociation" wlan.fc.type_subtype == 10
+"Wi-Fi/WLAN Authentication" wlan.fc.type_subtype == 11
+"Wi-Fi/WLAN De-Authentication" wlan.fc.type_subtype == 12
+"Wi-Fi/WLAN Action Request" wlan.fc.type_subtype == 13
 "Wi-Fi/WLAN De-Authentication and Authentication" (wlan.fc.type_subtype == 0x000b) or (wlan.fc.type_subtype == 0x000c)
 "Wi-Fi/WLAN EAP Authentication Frames" eapol
 "Wi-Fi/WLAN Data Rate less than 4Mb/s" radiotap.datarate <= 4
+"Wi-Fi/WLAN Roaming" wlan.fc.type_subtype == 0 || wlan.fc.type_subtype == 1 || wlan.fc.type_subtype == 2 || wlan.fc.type_subtype == 3 || wlan.fc.type_subtype == 10 || wlan.fc.type_subtype == 11 || wlan.fc.type_subtype == 12 || wlan.rm.action_code == 0 || wlan.rm.action_code == 4 || wlan.rm.action_code == 5 || wlan.tag.number == 52 || wlan.tag.number == 39 || wlan.fixed.action_code == 7
+"Wi-Fi/WLAN AP Neighbor Report" wlan.tag.number == 52
+"Wi-Fi/WLAN 11r AP support" wlan.rsn.akms.type == 4
+"Wi-Fi/WLAN 11r STA support" (wlan.fc.type_subtype == 0) && (wlan.tag.number == 52)
+"Wi-Fi/WLAN 11k Neighbor report support AP&STA" wlan.rmcap.b1 == 1
+"Wi-Fi/WLAN 11k STA Support" (wlan.fc.type_subtype == 0) && (wlan.rmcap.b4 == 1 || wlan.rmcap.b5 == 1)
+"Wi-Fi/WLAN 11k Neighbor Report Request" wlan.rm.action_code == 4
+"Wi-Fi/WLAN 11k Neighbor Report Response" wlan.rm.action_code == 5
+"Wi-Fi/WLAN 11v STA probe request" wlan.fc.type_subtype == 4 && wlan.extcap.b19 ==1
+"Wi-Fi/WLAN 11v BSS Transition" wlan.extcap.b19 == 1
+"Wi-Fi/WLAN 11v Measurement report request" wlan.tag.number == 38
+"Wi-Fi/WLAN 11v Measurement report" wlan.tag.number == 39
+"Wi-Fi/WLAN 11v AP transition Mgmt request" wlan.fixed.action_code == 7
+"Wi-Fi/WLAN Radio Measurement Requests" wlan.rm.action_code == 0
 "Ethernet address 00:08:15:00:08:15" eth.addr == 00:08:15:00:08:15
 "Ethernet type 0x0806 (ARP)" eth.type == 0x0806
 "Ethernet broadcast" eth.addr == ff:ff:ff:ff:ff:ff
